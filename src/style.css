@@ -497,6 +497,20 @@ body {
   color: var(--ash-dim);
   text-align: center;
   margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5em;
+}
+
+.spec-github {
+  color: var(--ash-dim);
+  text-decoration: none;
+  letter-spacing: 0.14em;
+}
+
+.spec-github:hover {
+  color: var(--amber);
 }
 
 /* ── Responsive ─────────────────────────────────────────────────────────── */
