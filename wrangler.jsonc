@@ -1,0 +1,8 @@
+{
+  // Static-assets-only deploy (no Worker script): `npx wrangler deploy` uploads dist/.
+  "name": "passport-photo",
+  "compatibility_date": "2025-08-01",
+  "assets": {
+    "directory": "./dist"
+  }
+}
