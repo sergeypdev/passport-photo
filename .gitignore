@@ -1,0 +1,15 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+
+# Python tooling (re-creatable; see tools/README notes)
+tools/.venv/
+tools/DPR/
+__pycache__/
+*.pyc
+
+# OS / editor
+.DS_Store
+*.log

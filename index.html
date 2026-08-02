@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Паспортное фото</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+  <main class="stage">
+
+    <header class="app-header">
+      <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true">·</span> ФОТОКАБИНЕТ <span class="eyebrow-dot" aria-hidden="true">·</span></p>
+      <h1 class="wordmark">Паспортное фото</h1>
+      <p class="subtitle">Загрузите портрет — мы уберём фон, выровняем и обрежем по стандарту 35×45 мм прямо в браузере.</p>
+    </header>
+
+    <!-- Input / Result panes -->
+    <div class="panes">
+      <div class="pane-outer" id="inputPane">
+        <div class="pane-label-row">
+          <span class="pane-label">ОРИГИНАЛ</span>
+        </div>
+        <label class="pane-well upload-zone" for="fileInput">
+          <canvas id="inputCanvas" class="pane-canvas hidden"></canvas>
+          <span class="upload-empty" id="inputEmpty">
+            <span class="upload-icon" aria-hidden="true">&#128247;</span>
+            <span class="upload-text">Перетащите фото или нажмите для выбора</span>
+            <span class="upload-hint">JPG или PNG</span>
+          </span>
+          <input type="file" id="fileInput" accept="image/*" />
+        </label>
+      </div>
+
+      <div class="pane-arrow" aria-hidden="true">→</div>
+
+      <div class="pane-outer" id="resultPane">
+        <div class="pane-label-row">
+          <span class="pane-label">РЕЗУЛЬТАТ</span>
+        </div>
+        <div class="pane-well result-well">
+          <canvas id="output" class="pane-canvas hidden"></canvas>
+          <p class="pane-empty" id="outputEmpty">Готовое фото появится здесь после обработки.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toggles row -->
+    <div class="toggles-row">
+      <label class="toggle-label" for="relightToggle">
+        <input type="checkbox" id="relightToggle" checked />
+        <span class="toggle-track"></span>
+        <span class="toggle-text">Выравнять освещение</span>
+      </label>
+      <label class="toggle-label" for="guidesToggle">
+        <input type="checkbox" id="guidesToggle" checked />
+        <span class="toggle-track"></span>
+        <span class="toggle-text">Показать разметку</span>
+      </label>
+    </div>
+
+    <!-- Actions -->
+    <div class="actions-row">
+      <button id="processBtn" class="btn btn-primary">Обработать</button>
+      <button id="downloadBtn" class="btn btn-secondary">Сохранить</button>
+    </div>
+
+    <!-- Adjustments (live, GPU) -->
+    <div class="adjustments">
+      <label class="slider-row" for="brightness">
+        <span>Яркость <output id="brightnessVal">1.00</output></span>
+        <input type="range" id="brightness" min="0.5" max="1.5" step="0.01" value="1" />
+      </label>
+      <label class="slider-row" for="contrast">
+        <span>Контраст <output id="contrastVal">1.00</output></span>
+        <input type="range" id="contrast" min="0.5" max="1.5" step="0.01" value="1" />
+      </label>
+      <label class="slider-row" for="saturation">
+        <span>Насыщенность <output id="saturationVal">1.00</output></span>
+        <input type="range" id="saturation" min="0" max="2" step="0.01" value="1" />
+      </label>
+    </div>
+
+    <!-- Status -->
+    <p id="status" class="status-text"></p>
+
+    <!-- Footer spec strip -->
+    <footer class="spec-strip">35×45 MM · 300 DPI · CROWN 4MM · sRGB</footer>
+
+  </main>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
