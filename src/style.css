@@ -506,7 +506,9 @@ body {
 .spec-github {
   color: var(--ash);
   text-decoration: none;
-  letter-spacing: 0.14em;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s;
 }
 
 .spec-github:hover {
