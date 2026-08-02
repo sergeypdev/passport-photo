@@ -504,7 +504,7 @@ body {
 }
 
 .spec-github {
-  color: var(--ash-dim);
+  color: var(--ash);
   text-decoration: none;
   letter-spacing: 0.14em;
 }
